@@ -9,17 +9,17 @@ app = Flask(__name__)
 CORS(app)
 
 # Azure AD application details
-TENANT_ID = "ce0dc187-5e20-4403-8c23-f4a815dc7b0d"
-CLIENT_ID = "0eb9bfc6-30f7-4ef4-aea8-03e3b6afb6ed"
-CLIENT_SECRET = "se18Q~LyCEFUh-aNqEIxH1IEuaIc9lYD_SCjpc.T"
-SUBSCRIPTION_ID = "dac89436-7e11-4b69-9873-b2d2daf6c299"
+# TENANT_ID = "ce0dc187-5e20-4403-8c23-f4a815dc7b0d"
+# CLIENT_ID = "0eb9bfc6-30f7-4ef4-aea8-03e3b6afb6ed"
+# CLIENT_SECRET = "se18Q~LyCEFUh-aNqEIxH1IEuaIc9lYD_SCjpc.T"
+# SUBSCRIPTION_ID = "dac89436-7e11-4b69-9873-b2d2daf6c299"
 
-# Authenticate using ClientSecretCredential
-credential = ClientSecretCredential(
-    tenant_id=TENANT_ID,
-    client_id=CLIENT_ID,
-    client_secret=CLIENT_SECRET
-)
+# # Authenticate using ClientSecretCredential
+# credential = ClientSecretCredential(
+#     tenant_id=TENANT_ID,
+#     client_id=CLIENT_ID,
+#     client_secret=CLIENT_SECRET
+# )
 
 # Initialize Azure clients
 resource_client = ResourceManagementClient(credential, SUBSCRIPTION_ID)
