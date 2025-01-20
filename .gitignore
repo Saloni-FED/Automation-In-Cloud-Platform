@@ -1,2 +1,4 @@
 ./venv
-connect_to_azure.py
+*.json
+*.key
+*.pem

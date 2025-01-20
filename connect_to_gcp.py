@@ -27,21 +27,7 @@ def deploy_function_and_create_trigger():
     
     zip_file_path = 'function-source.zip'
 
-    # Service Account credentials
-    credentials_json = """
-    {
-      "type": "service_account",
-      "project_id": "able-stock-428615-n4",
-      "private_key_id": "8b11902e6c08f9182d09f3cc668682b564c66995",
-      "private_key": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDUd8YX+/aIjw1l\\nXZegQMOpMWwM4jb4gHIER2PTUF1b5XI83Ayr8rjeonT56A8Bz5xXT5UDZHhi2ByG\\n8HerJTpmihbRuS0rU7nimKP7PrJSoonl3nQiWxGoYuVi023avD15iPkGSFi5uBxr\\n55i+xfZs+7I93zZHTDo3ZW0xOCzFM6yEyiXes8QiULf3hIMliMdWhKboVHU39Zxn\\nMEUvKW6uZqZ0aWkKa0SeKFZvTcHhfDKIvvxbquKEe8B6TfxQrf0iczSEHybAzToz\\nQZo7YbQ1a9fkMroMUQFpvCMb/VQ0YtnFBXuURc2al3pMeY9rbtORhQqle0n6gH3K\\nYq9WTlnBAgMBAAECggEAItYen0kbQ4m9Bw1A8rAbxK6LSlN+8uDQkP4Jkpi/LfWh\\ndPQZicnq4OofJuiTKVdaiYBNbPh4urA3gTKFVITunehvVGS50LxSIqKnZGcDwwPO\\ne2etgAKRkxvgA4OqI+6wX7CDMDIFhjH3SwP2qfT4cicUswtZsXgApZuWOzc8M/r3\\n9b2T4UdsXNLHCtWy4WfO1FTNbbACmwPQ06RKzdlD547bTZmkGDcqYL46NEitS45k\\nHSzN7XK5z+8Dd+Doo8WYKgDIb6YbgXklIyUmLiOmTEPiQ/XLCQ/4X/ud5FOnF21U\\nO+IDfoK5Cl5+LBixFfcQpVtwOo+N6rKqfnY0mL0k3wKBgQDzlpSerejTi37zD7op\\nEpifu/c2NYD9UHR63ZXOnJWkUhgXJazk0kJ0nlaUoMeFmxbdWI3sOGKoTjXbAbzU\\nLOPd82H9OmmXdQpbt6XOq0/ChDu2mfQbln+GDttiTfrUDqko9m8GlkRoCALNwBbX\\nesqe3JGvLGTZwYVTvCgrZr4kmwKBgQDfS0Cmp0wxcaOKwq3OP7Xvcol9vgxvskWQ\\nJB9dwa/98Y67m/N5QHrM4Wri+CjU9Pwrfqtrl4PyoRRws1f0glE6lDyf5oFeqFBF\\n+p53tSTo0duygzG+BLnZmoMIZZ/Jv944ht8utgc4cqfpLZr5cK31iiAGbvrEdT3j\\n+XYV8Spq0wKBgEWC/RpjKoPj1PBr1oYOBnve2ecgUZT4NqUxQqTZTmK8Ap/oYnRS\\nBCDfZnm3f/iCj33O3YFBffXli7zZvBcYUFZwM9BdsPBFuBUATVKy1Gn/7kJnoJ+W\\nzQFmj/h3pFKLdH56BKjujMrbLmGkpWAMbHH1I6XHl2gEr5V7pkLsaOptAoGBAJpr\\nJjiZ9Z0z409wtlWtxZnj8aVdqqgL9wNpl6905MqPJJAll0jBCKtrMEnqKAKtsT47\\nCT0MuRkvwDz4KdlTzeze2tYRyGG3sFvUp4ZNZUsE5hQbmmi4R/ZuXjOOY+RXpcwd\\nqXZaN8AXunsNKOFbxVHKxb7tPMpj8fsYZ0thTl41AoGAB3uqZ55O6vo7srd77xsc\\nPtTz3rDWOnmZG0BwXaU5cpFtyzWmg32sOPvLseYMz22MUn4B2b/JN83q3HdG5nxM\\n2+I0pvzpwPj3HA6rDJzf2TxVEl3lAo+wqf5FjVz+cblqgfNCmu+nHyEp/uch9WaF\\nXqYi2V+AREqOyKq4i1vDC4Y=\\n-----END PRIVATE KEY-----\\n",
-      "client_email": "test-2@able-stock-428615-n4.iam.gserviceaccount.com",
-      "client_id": "112248088088723126178",
-      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-      "token_uri": "https://oauth2.googleapis.com/token",
-      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-      "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/test-2%40able-stock-428615-n4.iam.gserviceaccount.com"
-    }
-    """
+   
 
     # Load credentials from JSON
     credentials_dict = json.loads(credentials_json)
