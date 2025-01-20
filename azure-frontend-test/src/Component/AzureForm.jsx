@@ -10,6 +10,17 @@ function AzureResourceForm() {
 
   // Resource Types and Event Types Mapping
   const resourceTypes = {
+    "Resource Group": [
+      "Microsoft.Resources.ResourceActionCancel",
+      "Microsoft.Resources.ResourceActionFailure",
+      "Microsoft.Resources.ResourceActionSuccess",
+      "Microsoft.Resources.ResourceDeleteCancel",
+      "Microsoft.Resources.ResourceDeleteFailure",
+      "Microsoft.Resources.ResourceDeleteSuccess",
+      "Microsoft.Resources.ResourceWriteCancel",
+      "Microsoft.Resources.ResourceWriteFailure",
+      "Microsoft.Resources.ResourceWriteSuccess",
+    ],
     "Blob Storage": [
       "Microsoft.Storage.BlobCreated",
       "Microsoft.Storage.BlobDeleted",
@@ -120,6 +131,7 @@ function AzureResourceForm() {
   const handleResourceChange = (e) => {
     const selectedResource = e.target.value;
     setResourceType(selectedResource);
+    // console.log(resourceTypes[resourceType])
     setEventTypes([]); // Reset event types when resource type changes
     setBlobName(""); // Reset conditional inputs
     setVmName("");
@@ -154,7 +166,14 @@ function AzureResourceForm() {
       const result = await response.json();
 
       if (response.ok) {
-        alert("Event Subscription created successfully:\n" + JSON.stringify(result, null, 2));
+        
+        console.log(JSON.stringify(result, null, 2))
+        setEventTypes([])
+        setResourceGroupName("")
+        setBlobName('')
+        setSubscriptionName('')
+
+
       } else {
         alert("Error creating Event Subscription:\n" + JSON.stringify(result, null, 2));
       }
@@ -183,6 +202,22 @@ function AzureResourceForm() {
             onChange={(e) => setSubscriptionName(e.target.value)}
             className="w-full border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter subscription name"
+            required
+          />
+        </div>
+
+        {/* Resource Group name */}
+        <div className="mb-4">
+          <label htmlFor="resourceGroupName" className="block text-gray-700 font-bold mb-2">
+            Resource Group Name
+          </label>
+          <input
+            type="text"
+            id="resourceGroupName"
+            value={resourceGroupName}
+            onChange={(e) => setResourceGroupName(e.target.value)}
+            className="w-full border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter resource group name"
             required
           />
         </div>
@@ -233,20 +268,7 @@ function AzureResourceForm() {
         )}
 
         {/* Resource Group Name */}
-        <div className="mb-4">
-          <label htmlFor="resourceGroupName" className="block text-gray-700 font-bold mb-2">
-            Resource Group Name
-          </label>
-          <input
-            type="text"
-            id="resourceGroupName"
-            value={resourceGroupName}
-            onChange={(e) => setResourceGroupName(e.target.value)}
-            className="w-full border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter resource group name"
-            required
-          />
-        </div>
+        
 
         {/* Conditional Inputs */}
         {resourceType === "Blob Storage" && (
