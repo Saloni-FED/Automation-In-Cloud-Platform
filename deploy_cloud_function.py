@@ -12,7 +12,7 @@ def deploy_python_function():
     function_name = "function-7"
 
     
-
+     
     # Load credentials from JSON
     credentials_dict = json.loads(credentials_json)
     credentials = service_account.Credentials.from_service_account_info(credentials_dict)
